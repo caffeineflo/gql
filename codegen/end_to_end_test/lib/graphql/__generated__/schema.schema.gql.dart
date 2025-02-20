@@ -8,7 +8,7 @@ import 'package:built_value/serializer.dart';
 import 'package:end_to_end_test/custom_field.dart' as _i2;
 import 'package:end_to_end_test/graphql/__generated__/serializers.gql.dart'
     as _i1;
-import 'package:gql_code_builder_serializers/gql_code_builder_serializers.dart'
+import 'package:gql_code_builder/src/serializers/default_scalar_serializer.dart'
     as _i3;
 
 part 'schema.schema.gql.g.dart';
@@ -51,20 +51,8 @@ abstract class GReviewInput
     implements Built<GReviewInput, GReviewInputBuilder> {
   GReviewInput._();
 
-  factory GReviewInput([void Function(GReviewInputBuilder b) updates]) =
+  factory GReviewInput([Function(GReviewInputBuilder b) updates]) =
       _$GReviewInput;
-
-  factory GReviewInput.create({
-    required int stars,
-    String? commentary,
-    GColorInput? favorite_color,
-    BuiltList<DateTime?>? seenOn,
-  }) =>
-      GReviewInput((b) => b
-        ..stars = stars
-        ..commentary = commentary
-        ..favorite_color = favorite_color?.toBuilder()
-        ..seenOn = seenOn?.toBuilder());
 
   int get stars;
   String? get commentary;
@@ -88,17 +76,8 @@ abstract class GCustomFieldInput
     implements Built<GCustomFieldInput, GCustomFieldInputBuilder> {
   GCustomFieldInput._();
 
-  factory GCustomFieldInput(
-          [void Function(GCustomFieldInputBuilder b) updates]) =
+  factory GCustomFieldInput([Function(GCustomFieldInputBuilder b) updates]) =
       _$GCustomFieldInput;
-
-  factory GCustomFieldInput.create({
-    required String id,
-    _i2.CustomField? customField,
-  }) =>
-      GCustomFieldInput((b) => b
-        ..id = id
-        ..customField = customField);
 
   String get id;
   _i2.CustomField? get customField;
@@ -120,18 +99,7 @@ abstract class GCustomFieldInput
 abstract class GColorInput implements Built<GColorInput, GColorInputBuilder> {
   GColorInput._();
 
-  factory GColorInput([void Function(GColorInputBuilder b) updates]) =
-      _$GColorInput;
-
-  factory GColorInput.create({
-    required int red,
-    required int green,
-    required int blue,
-  }) =>
-      GColorInput((b) => b
-        ..red = red
-        ..green = green
-        ..blue = blue);
+  factory GColorInput([Function(GColorInputBuilder b) updates]) = _$GColorInput;
 
   int get red;
   int get green;
@@ -154,11 +122,8 @@ abstract class GPostLikesInput
     implements Built<GPostLikesInput, GPostLikesInputBuilder> {
   GPostLikesInput._();
 
-  factory GPostLikesInput([void Function(GPostLikesInputBuilder b) updates]) =
+  factory GPostLikesInput([Function(GPostLikesInputBuilder b) updates]) =
       _$GPostLikesInput;
-
-  factory GPostLikesInput.create({required String id}) =>
-      GPostLikesInput((b) => b..id = id);
 
   String get id;
   static Serializer<GPostLikesInput> get serializer =>
@@ -181,11 +146,7 @@ abstract class GPostFavoritesInput
   GPostFavoritesInput._();
 
   factory GPostFavoritesInput(
-          [void Function(GPostFavoritesInputBuilder b) updates]) =
-      _$GPostFavoritesInput;
-
-  factory GPostFavoritesInput.create({required String id}) =>
-      GPostFavoritesInput((b) => b..id = id);
+      [Function(GPostFavoritesInputBuilder b) updates]) = _$GPostFavoritesInput;
 
   String get id;
   static Serializer<GPostFavoritesInput> get serializer =>

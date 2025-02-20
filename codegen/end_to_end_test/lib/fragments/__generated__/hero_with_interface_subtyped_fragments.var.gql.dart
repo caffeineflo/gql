@@ -18,12 +18,8 @@ abstract class GHeroWithInterfaceSubTypedFragmentsVars
   GHeroWithInterfaceSubTypedFragmentsVars._();
 
   factory GHeroWithInterfaceSubTypedFragmentsVars(
-      [void Function(GHeroWithInterfaceSubTypedFragmentsVarsBuilder b)
+      [Function(GHeroWithInterfaceSubTypedFragmentsVarsBuilder b)
           updates]) = _$GHeroWithInterfaceSubTypedFragmentsVars;
-
-  factory GHeroWithInterfaceSubTypedFragmentsVars.create(
-          {required _i1.GEpisode episode}) =>
-      GHeroWithInterfaceSubTypedFragmentsVars((b) => b..episode = episode);
 
   _i1.GEpisode get episode;
   static Serializer<GHeroWithInterfaceSubTypedFragmentsVars> get serializer =>
@@ -47,10 +43,8 @@ abstract class GheroFieldsFragmentVars
   GheroFieldsFragmentVars._();
 
   factory GheroFieldsFragmentVars(
-          [void Function(GheroFieldsFragmentVarsBuilder b) updates]) =
+          [Function(GheroFieldsFragmentVarsBuilder b) updates]) =
       _$GheroFieldsFragmentVars;
-
-  factory GheroFieldsFragmentVars.create() => GheroFieldsFragmentVars();
 
   static Serializer<GheroFieldsFragmentVars> get serializer =>
       _$gheroFieldsFragmentVarsSerializer;
@@ -73,10 +67,8 @@ abstract class GhumanFieldsFragmentVars
   GhumanFieldsFragmentVars._();
 
   factory GhumanFieldsFragmentVars(
-          [void Function(GhumanFieldsFragmentVarsBuilder b) updates]) =
+          [Function(GhumanFieldsFragmentVarsBuilder b) updates]) =
       _$GhumanFieldsFragmentVars;
-
-  factory GhumanFieldsFragmentVars.create() => GhumanFieldsFragmentVars();
 
   static Serializer<GhumanFieldsFragmentVars> get serializer =>
       _$ghumanFieldsFragmentVarsSerializer;
@@ -99,10 +91,8 @@ abstract class GdroidFieldsFragmentVars
   GdroidFieldsFragmentVars._();
 
   factory GdroidFieldsFragmentVars(
-          [void Function(GdroidFieldsFragmentVarsBuilder b) updates]) =
+          [Function(GdroidFieldsFragmentVarsBuilder b) updates]) =
       _$GdroidFieldsFragmentVars;
-
-  factory GdroidFieldsFragmentVars.create() => GdroidFieldsFragmentVars();
 
   static Serializer<GdroidFieldsFragmentVars> get serializer =>
       _$gdroidFieldsFragmentVarsSerializer;

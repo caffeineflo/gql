@@ -19,16 +19,8 @@ abstract class GreviewsWithListArgumentVars
   GreviewsWithListArgumentVars._();
 
   factory GreviewsWithListArgumentVars(
-          [void Function(GreviewsWithListArgumentVarsBuilder b) updates]) =
+          [Function(GreviewsWithListArgumentVarsBuilder b) updates]) =
       _$GreviewsWithListArgumentVars;
-
-  factory GreviewsWithListArgumentVars.create({
-    required _i1.GEpisode episode,
-    BuiltList<int>? stars,
-  }) =>
-      GreviewsWithListArgumentVars((b) => b
-        ..episode = episode
-        ..stars = stars?.toBuilder());
 
   _i1.GEpisode get episode;
   BuiltList<int>? get stars;

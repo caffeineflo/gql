@@ -21,8 +21,8 @@ abstract class GHeroWithInterfaceSubTypedFragments
   GHeroWithInterfaceSubTypedFragments._();
 
   factory GHeroWithInterfaceSubTypedFragments(
-      [void Function(GHeroWithInterfaceSubTypedFragmentsBuilder b)
-          updates]) = _$GHeroWithInterfaceSubTypedFragments;
+          [Function(GHeroWithInterfaceSubTypedFragmentsBuilder b) updates]) =
+      _$GHeroWithInterfaceSubTypedFragments;
 
   static void _initializeBuilder(
           GHeroWithInterfaceSubTypedFragmentsBuilder b) =>

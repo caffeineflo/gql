@@ -20,7 +20,7 @@ abstract class GreviewsWithListArgument
   GreviewsWithListArgument._();
 
   factory GreviewsWithListArgument(
-          [void Function(GreviewsWithListArgumentBuilder b) updates]) =
+          [Function(GreviewsWithListArgumentBuilder b) updates]) =
       _$GreviewsWithListArgument;
 
   static void _initializeBuilder(GreviewsWithListArgumentBuilder b) => b

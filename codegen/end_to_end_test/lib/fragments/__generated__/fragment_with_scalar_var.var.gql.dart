@@ -17,11 +17,8 @@ abstract class GPostsWithFixedVariableVars
   GPostsWithFixedVariableVars._();
 
   factory GPostsWithFixedVariableVars(
-          [void Function(GPostsWithFixedVariableVarsBuilder b) updates]) =
+          [Function(GPostsWithFixedVariableVarsBuilder b) updates]) =
       _$GPostsWithFixedVariableVars;
-
-  factory GPostsWithFixedVariableVars.create({_i1.GJson? filter}) =>
-      GPostsWithFixedVariableVars((b) => b..filter = filter?.toBuilder());
 
   _i1.GJson? get filter;
   static Serializer<GPostsWithFixedVariableVars> get serializer =>
@@ -45,10 +42,8 @@ abstract class GPostFragmentForUser1Vars
   GPostFragmentForUser1Vars._();
 
   factory GPostFragmentForUser1Vars(
-          [void Function(GPostFragmentForUser1VarsBuilder b) updates]) =
+          [Function(GPostFragmentForUser1VarsBuilder b) updates]) =
       _$GPostFragmentForUser1Vars;
-
-  factory GPostFragmentForUser1Vars.create() => GPostFragmentForUser1Vars();
 
   static Serializer<GPostFragmentForUser1Vars> get serializer =>
       _$gPostFragmentForUser1VarsSerializer;

@@ -18,8 +18,7 @@ abstract class GCreateCustomField
     implements Built<GCreateCustomField, GCreateCustomFieldBuilder> {
   GCreateCustomField._();
 
-  factory GCreateCustomField(
-          [void Function(GCreateCustomFieldBuilder b) updates]) =
+  factory GCreateCustomField([Function(GCreateCustomFieldBuilder b) updates]) =
       _$GCreateCustomField;
 
   static void _initializeBuilder(GCreateCustomFieldBuilder b) => b

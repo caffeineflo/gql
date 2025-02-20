@@ -15,11 +15,8 @@ abstract class GAliasedHeroVars
     implements Built<GAliasedHeroVars, GAliasedHeroVarsBuilder> {
   GAliasedHeroVars._();
 
-  factory GAliasedHeroVars([void Function(GAliasedHeroVarsBuilder b) updates]) =
+  factory GAliasedHeroVars([Function(GAliasedHeroVarsBuilder b) updates]) =
       _$GAliasedHeroVars;
-
-  factory GAliasedHeroVars.create({required _i1.GEpisode ep}) =>
-      GAliasedHeroVars((b) => b..ep = ep);
 
   _i1.GEpisode get ep;
   static Serializer<GAliasedHeroVars> get serializer =>

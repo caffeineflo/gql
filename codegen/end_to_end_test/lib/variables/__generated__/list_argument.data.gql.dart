@@ -19,7 +19,7 @@ abstract class GreviewsWithListArgumentData
   GreviewsWithListArgumentData._();
 
   factory GreviewsWithListArgumentData(
-          [void Function(GreviewsWithListArgumentDataBuilder b) updates]) =
+          [Function(GreviewsWithListArgumentDataBuilder b) updates]) =
       _$GreviewsWithListArgumentData;
 
   static void _initializeBuilder(GreviewsWithListArgumentDataBuilder b) =>
@@ -50,8 +50,8 @@ abstract class GreviewsWithListArgumentData_reviews
   GreviewsWithListArgumentData_reviews._();
 
   factory GreviewsWithListArgumentData_reviews(
-      [void Function(GreviewsWithListArgumentData_reviewsBuilder b)
-          updates]) = _$GreviewsWithListArgumentData_reviews;
+          [Function(GreviewsWithListArgumentData_reviewsBuilder b) updates]) =
+      _$GreviewsWithListArgumentData_reviews;
 
   static void _initializeBuilder(
           GreviewsWithListArgumentData_reviewsBuilder b) =>

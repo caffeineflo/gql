@@ -15,17 +15,8 @@ abstract class GCreateReviewVars
     implements Built<GCreateReviewVars, GCreateReviewVarsBuilder> {
   GCreateReviewVars._();
 
-  factory GCreateReviewVars(
-          [void Function(GCreateReviewVarsBuilder b) updates]) =
+  factory GCreateReviewVars([Function(GCreateReviewVarsBuilder b) updates]) =
       _$GCreateReviewVars;
-
-  factory GCreateReviewVars.create({
-    _i1.GEpisode? episode,
-    required _i1.GReviewInput review,
-  }) =>
-      GCreateReviewVars((b) => b
-        ..episode = episode
-        ..review = review.toBuilder());
 
   _i1.GEpisode? get episode;
   _i1.GReviewInput get review;

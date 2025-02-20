@@ -7,7 +7,7 @@ import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
 import 'package:end_to_end_test/graphql/__generated__/serializers.gql.dart'
     as _i1;
-import 'package:gql_code_builder_serializers/gql_code_builder_serializers.dart'
+import 'package:gql_code_builder/src/serializers/inline_fragment_serializer.dart'
     as _i2;
 
 part 'hero_for_episode.data.gql.g.dart';
@@ -17,8 +17,7 @@ abstract class GHeroForEpisodeData
   GHeroForEpisodeData._();
 
   factory GHeroForEpisodeData(
-          [void Function(GHeroForEpisodeDataBuilder b) updates]) =
-      _$GHeroForEpisodeData;
+      [Function(GHeroForEpisodeDataBuilder b) updates]) = _$GHeroForEpisodeData;
 
   static void _initializeBuilder(GHeroForEpisodeDataBuilder b) =>
       b..G__typename = 'Query';
@@ -101,7 +100,7 @@ abstract class GHeroForEpisodeData_hero__base
   GHeroForEpisodeData_hero__base._();
 
   factory GHeroForEpisodeData_hero__base(
-          [void Function(GHeroForEpisodeData_hero__baseBuilder b) updates]) =
+          [Function(GHeroForEpisodeData_hero__baseBuilder b) updates]) =
       _$GHeroForEpisodeData_hero__base;
 
   static void _initializeBuilder(GHeroForEpisodeData_hero__baseBuilder b) =>
@@ -138,8 +137,8 @@ abstract class GHeroForEpisodeData_hero__base_friends
   GHeroForEpisodeData_hero__base_friends._();
 
   factory GHeroForEpisodeData_hero__base_friends(
-      [void Function(GHeroForEpisodeData_hero__base_friendsBuilder b)
-          updates]) = _$GHeroForEpisodeData_hero__base_friends;
+          [Function(GHeroForEpisodeData_hero__base_friendsBuilder b) updates]) =
+      _$GHeroForEpisodeData_hero__base_friends;
 
   static void _initializeBuilder(
           GHeroForEpisodeData_hero__base_friendsBuilder b) =>
@@ -176,7 +175,7 @@ abstract class GHeroForEpisodeData_hero__asDroid
   GHeroForEpisodeData_hero__asDroid._();
 
   factory GHeroForEpisodeData_hero__asDroid(
-          [void Function(GHeroForEpisodeData_hero__asDroidBuilder b) updates]) =
+          [Function(GHeroForEpisodeData_hero__asDroidBuilder b) updates]) =
       _$GHeroForEpisodeData_hero__asDroid;
 
   static void _initializeBuilder(GHeroForEpisodeData_hero__asDroidBuilder b) =>
@@ -216,7 +215,7 @@ abstract class GHeroForEpisodeData_hero__asDroid_friends
   GHeroForEpisodeData_hero__asDroid_friends._();
 
   factory GHeroForEpisodeData_hero__asDroid_friends(
-      [void Function(GHeroForEpisodeData_hero__asDroid_friendsBuilder b)
+      [Function(GHeroForEpisodeData_hero__asDroid_friendsBuilder b)
           updates]) = _$GHeroForEpisodeData_hero__asDroid_friends;
 
   static void _initializeBuilder(
@@ -263,8 +262,7 @@ abstract class GDroidFragmentData
         GDroidFragment {
   GDroidFragmentData._();
 
-  factory GDroidFragmentData(
-          [void Function(GDroidFragmentDataBuilder b) updates]) =
+  factory GDroidFragmentData([Function(GDroidFragmentDataBuilder b) updates]) =
       _$GDroidFragmentData;
 
   static void _initializeBuilder(GDroidFragmentDataBuilder b) =>

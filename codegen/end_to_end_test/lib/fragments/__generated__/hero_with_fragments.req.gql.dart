@@ -18,8 +18,7 @@ abstract class GHeroWithFragments
     implements Built<GHeroWithFragments, GHeroWithFragmentsBuilder> {
   GHeroWithFragments._();
 
-  factory GHeroWithFragments(
-          [void Function(GHeroWithFragmentsBuilder b) updates]) =
+  factory GHeroWithFragments([Function(GHeroWithFragmentsBuilder b) updates]) =
       _$GHeroWithFragments;
 
   static void _initializeBuilder(GHeroWithFragmentsBuilder b) => b
