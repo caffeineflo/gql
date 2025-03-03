@@ -15,8 +15,7 @@ abstract class GCreateReviewData
     implements Built<GCreateReviewData, GCreateReviewDataBuilder> {
   GCreateReviewData._();
 
-  factory GCreateReviewData(
-          [void Function(GCreateReviewDataBuilder b) updates]) =
+  factory GCreateReviewData([Function(GCreateReviewDataBuilder b) updates]) =
       _$GCreateReviewData;
 
   static void _initializeBuilder(GCreateReviewDataBuilder b) =>
@@ -47,7 +46,7 @@ abstract class GCreateReviewData_createReview
   GCreateReviewData_createReview._();
 
   factory GCreateReviewData_createReview(
-          [void Function(GCreateReviewData_createReviewBuilder b) updates]) =
+          [Function(GCreateReviewData_createReviewBuilder b) updates]) =
       _$GCreateReviewData_createReview;
 
   static void _initializeBuilder(GCreateReviewData_createReviewBuilder b) =>

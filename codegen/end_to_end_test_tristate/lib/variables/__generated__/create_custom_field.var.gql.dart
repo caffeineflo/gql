@@ -16,14 +16,13 @@ abstract class GCreateCustomFieldVars
   GCreateCustomFieldVars._();
 
   factory GCreateCustomFieldVars(
-          [void Function(GCreateCustomFieldVarsBuilder b) updates]) =
+          [Function(GCreateCustomFieldVarsBuilder b) updates]) =
       _$GCreateCustomFieldVars;
 
-  factory GCreateCustomFieldVars.create(
-          {required _i1.GCustomFieldInput input}) =>
-      GCreateCustomFieldVars((b) => b..input = input.toBuilder());
-
   _i1.GCustomFieldInput get input;
+  static Serializer<GCreateCustomFieldVars> get serializer =>
+      _$gCreateCustomFieldVarsSerializer;
+
   Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GCreateCustomFieldVars.serializer,
         this,
@@ -34,53 +33,4 @@ abstract class GCreateCustomFieldVars
         GCreateCustomFieldVars.serializer,
         json,
       );
-
-  @BuiltValueSerializer(custom: true, serializeNulls: true)
-  static Serializer<GCreateCustomFieldVars> get serializer =>
-      GCreateCustomFieldVarsSerializer();
-}
-
-final class GCreateCustomFieldVarsSerializer
-    extends StructuredSerializer<GCreateCustomFieldVars> {
-  final String wireName = 'GCreateCustomFieldVars';
-
-  final Iterable<Type> types = const [
-    GCreateCustomFieldVars,
-    _$GCreateCustomFieldVars
-  ];
-
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GCreateCustomFieldVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[];
-    result.add('input');
-    result.add(serializers.serialize(object.input,
-        specifiedType: const FullType(_i1.GCustomFieldInput)));
-    return result;
-  }
-
-  GCreateCustomFieldVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final builder = GCreateCustomFieldVarsBuilder();
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'input':
-          var _$fieldValue = serializers.deserialize(value,
-                  specifiedType: const FullType(_i1.GCustomFieldInput))
-              as _i1.GCustomFieldInput;
-          builder.input.replace(_$fieldValue);
-          break;
-      }
-    }
-    return builder.build();
-  }
 }

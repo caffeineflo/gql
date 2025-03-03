@@ -18,8 +18,7 @@ abstract class GReviewWithDateData
   GReviewWithDateData._();
 
   factory GReviewWithDateData(
-          [void Function(GReviewWithDateDataBuilder b) updates]) =
-      _$GReviewWithDateData;
+      [Function(GReviewWithDateDataBuilder b) updates]) = _$GReviewWithDateData;
 
   static void _initializeBuilder(GReviewWithDateDataBuilder b) =>
       b..G__typename = 'Mutation';
@@ -49,7 +48,7 @@ abstract class GReviewWithDateData_createReview
   GReviewWithDateData_createReview._();
 
   factory GReviewWithDateData_createReview(
-          [void Function(GReviewWithDateData_createReviewBuilder b) updates]) =
+          [Function(GReviewWithDateData_createReviewBuilder b) updates]) =
       _$GReviewWithDateData_createReview;
 
   static void _initializeBuilder(GReviewWithDateData_createReviewBuilder b) =>

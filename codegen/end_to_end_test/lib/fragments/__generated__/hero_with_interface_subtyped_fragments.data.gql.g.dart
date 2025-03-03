@@ -987,9 +987,10 @@ class GHeroWithInterfaceSubTypedFragmentsDataBuilder
     try {
       _$result = _$v ??
           new _$GHeroWithInterfaceSubTypedFragmentsData._(
-              G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                  r'GHeroWithInterfaceSubTypedFragmentsData', 'G__typename'),
-              hero: _hero?.build());
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GHeroWithInterfaceSubTypedFragmentsData', 'G__typename'),
+            hero: _hero?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1127,12 +1128,13 @@ class GHeroWithInterfaceSubTypedFragmentsData_heroBuilder
   _$GHeroWithInterfaceSubTypedFragmentsData_hero _build() {
     final _$result = _$v ??
         new _$GHeroWithInterfaceSubTypedFragmentsData_hero._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'name'));
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GHeroWithInterfaceSubTypedFragmentsData_hero', 'name'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1249,12 +1251,13 @@ class GheroFieldsFragmentData__baseBuilder
   _$GheroFieldsFragmentData__base _build() {
     final _$result = _$v ??
         new _$GheroFieldsFragmentData__base._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GheroFieldsFragmentData__base', 'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GheroFieldsFragmentData__base', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GheroFieldsFragmentData__base', 'name'));
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename, r'GheroFieldsFragmentData__base', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GheroFieldsFragmentData__base', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GheroFieldsFragmentData__base', 'name'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1402,14 +1405,15 @@ class GheroFieldsFragmentData__asHumanBuilder
     try {
       _$result = _$v ??
           new _$GheroFieldsFragmentData__asHuman._(
-              G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                  r'GheroFieldsFragmentData__asHuman', 'G__typename'),
-              id: BuiltValueNullFieldError.checkNotNull(
-                  id, r'GheroFieldsFragmentData__asHuman', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name, r'GheroFieldsFragmentData__asHuman', 'name'),
-              homePlanet: homePlanet,
-              friends: _friends?.build());
+            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+                r'GheroFieldsFragmentData__asHuman', 'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'GheroFieldsFragmentData__asHuman', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name, r'GheroFieldsFragmentData__asHuman', 'name'),
+            homePlanet: homePlanet,
+            friends: _friends?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -1522,10 +1526,9 @@ class GheroFieldsFragmentData__asHuman_friends__baseBuilder
   _$GheroFieldsFragmentData__asHuman_friends__base _build() {
     final _$result = _$v ??
         new _$GheroFieldsFragmentData__asHuman_friends__base._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                r'GheroFieldsFragmentData__asHuman_friends__base',
-                'G__typename'));
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GheroFieldsFragmentData__asHuman_friends__base', 'G__typename'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -1667,15 +1670,16 @@ class GheroFieldsFragmentData__asHuman_friends__asDroidBuilder
   _$GheroFieldsFragmentData__asHuman_friends__asDroid _build() {
     final _$result = _$v ??
         new _$GheroFieldsFragmentData__asHuman_friends__asDroid._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                r'GheroFieldsFragmentData__asHuman_friends__asDroid',
-                'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GheroFieldsFragmentData__asHuman_friends__asDroid', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name,
-                r'GheroFieldsFragmentData__asHuman_friends__asDroid', 'name'),
-            primaryFunction: primaryFunction);
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename,
+              r'GheroFieldsFragmentData__asHuman_friends__asDroid',
+              'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GheroFieldsFragmentData__asHuman_friends__asDroid', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name,
+              r'GheroFieldsFragmentData__asHuman_friends__asDroid', 'name'),
+          primaryFunction: primaryFunction,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1816,15 +1820,16 @@ class GheroFieldsFragmentData__asHuman_friends__asHumanBuilder
   _$GheroFieldsFragmentData__asHuman_friends__asHuman _build() {
     final _$result = _$v ??
         new _$GheroFieldsFragmentData__asHuman_friends__asHuman._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename,
-                r'GheroFieldsFragmentData__asHuman_friends__asHuman',
-                'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(name,
-                r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'name'),
-            homePlanet: homePlanet);
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename,
+              r'GheroFieldsFragmentData__asHuman_friends__asHuman',
+              'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(name,
+              r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'name'),
+          homePlanet: homePlanet,
+        );
     replace(_$result);
     return _$result;
   }
@@ -1956,13 +1961,14 @@ class GheroFieldsFragmentData__asDroidBuilder
   _$GheroFieldsFragmentData__asDroid _build() {
     final _$result = _$v ??
         new _$GheroFieldsFragmentData__asDroid._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GheroFieldsFragmentData__asDroid', 'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GheroFieldsFragmentData__asDroid', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GheroFieldsFragmentData__asDroid', 'name'),
-            primaryFunction: primaryFunction);
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename, r'GheroFieldsFragmentData__asDroid', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GheroFieldsFragmentData__asDroid', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GheroFieldsFragmentData__asDroid', 'name'),
+          primaryFunction: primaryFunction,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2078,10 +2084,11 @@ class GhumanFieldsFragmentDataBuilder
     try {
       _$result = _$v ??
           new _$GhumanFieldsFragmentData._(
-              G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename, r'GhumanFieldsFragmentData', 'G__typename'),
-              homePlanet: homePlanet,
-              friends: _friends?.build());
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename, r'GhumanFieldsFragmentData', 'G__typename'),
+            homePlanet: homePlanet,
+            friends: _friends?.build(),
+          );
     } catch (_) {
       late String _$failedField;
       try {
@@ -2190,8 +2197,9 @@ class GhumanFieldsFragmentData_friends__baseBuilder
   _$GhumanFieldsFragmentData_friends__base _build() {
     final _$result = _$v ??
         new _$GhumanFieldsFragmentData_friends__base._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GhumanFieldsFragmentData_friends__base', 'G__typename'));
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GhumanFieldsFragmentData_friends__base', 'G__typename'),
+        );
     replace(_$result);
     return _$result;
   }
@@ -2329,13 +2337,14 @@ class GhumanFieldsFragmentData_friends__asDroidBuilder
   _$GhumanFieldsFragmentData_friends__asDroid _build() {
     final _$result = _$v ??
         new _$GhumanFieldsFragmentData_friends__asDroid._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GhumanFieldsFragmentData_friends__asDroid', 'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GhumanFieldsFragmentData_friends__asDroid', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GhumanFieldsFragmentData_friends__asDroid', 'name'),
-            primaryFunction: primaryFunction);
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GhumanFieldsFragmentData_friends__asDroid', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GhumanFieldsFragmentData_friends__asDroid', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GhumanFieldsFragmentData_friends__asDroid', 'name'),
+          primaryFunction: primaryFunction,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2472,13 +2481,14 @@ class GhumanFieldsFragmentData_friends__asHumanBuilder
   _$GhumanFieldsFragmentData_friends__asHuman _build() {
     final _$result = _$v ??
         new _$GhumanFieldsFragmentData_friends__asHuman._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
-                r'GhumanFieldsFragmentData_friends__asHuman', 'G__typename'),
-            id: BuiltValueNullFieldError.checkNotNull(
-                id, r'GhumanFieldsFragmentData_friends__asHuman', 'id'),
-            name: BuiltValueNullFieldError.checkNotNull(
-                name, r'GhumanFieldsFragmentData_friends__asHuman', 'name'),
-            homePlanet: homePlanet);
+          G__typename: BuiltValueNullFieldError.checkNotNull(G__typename,
+              r'GhumanFieldsFragmentData_friends__asHuman', 'G__typename'),
+          id: BuiltValueNullFieldError.checkNotNull(
+              id, r'GhumanFieldsFragmentData_friends__asHuman', 'id'),
+          name: BuiltValueNullFieldError.checkNotNull(
+              name, r'GhumanFieldsFragmentData_friends__asHuman', 'name'),
+          homePlanet: homePlanet,
+        );
     replace(_$result);
     return _$result;
   }
@@ -2581,9 +2591,10 @@ class GdroidFieldsFragmentDataBuilder
   _$GdroidFieldsFragmentData _build() {
     final _$result = _$v ??
         new _$GdroidFieldsFragmentData._(
-            G__typename: BuiltValueNullFieldError.checkNotNull(
-                G__typename, r'GdroidFieldsFragmentData', 'G__typename'),
-            primaryFunction: primaryFunction);
+          G__typename: BuiltValueNullFieldError.checkNotNull(
+              G__typename, r'GdroidFieldsFragmentData', 'G__typename'),
+          primaryFunction: primaryFunction,
+        );
     replace(_$result);
     return _$result;
   }

@@ -14,7 +14,7 @@ abstract class GHeroWith2FragmentsData
   GHeroWith2FragmentsData._();
 
   factory GHeroWith2FragmentsData(
-          [void Function(GHeroWith2FragmentsDataBuilder b) updates]) =
+          [Function(GHeroWith2FragmentsDataBuilder b) updates]) =
       _$GHeroWith2FragmentsData;
 
   static void _initializeBuilder(GHeroWith2FragmentsDataBuilder b) =>
@@ -47,7 +47,7 @@ abstract class GHeroWith2FragmentsData_hero
   GHeroWith2FragmentsData_hero._();
 
   factory GHeroWith2FragmentsData_hero(
-          [void Function(GHeroWith2FragmentsData_heroBuilder b) updates]) =
+          [Function(GHeroWith2FragmentsData_heroBuilder b) updates]) =
       _$GHeroWith2FragmentsData_hero;
 
   static void _initializeBuilder(GHeroWith2FragmentsData_heroBuilder b) =>
@@ -86,7 +86,7 @@ abstract class GheroNameData
     implements Built<GheroNameData, GheroNameDataBuilder>, GheroName {
   GheroNameData._();
 
-  factory GheroNameData([void Function(GheroNameDataBuilder b) updates]) =
+  factory GheroNameData([Function(GheroNameDataBuilder b) updates]) =
       _$GheroNameData;
 
   static void _initializeBuilder(GheroNameDataBuilder b) =>
@@ -122,8 +122,7 @@ abstract class GheroIdData
     implements Built<GheroIdData, GheroIdDataBuilder>, GheroId {
   GheroIdData._();
 
-  factory GheroIdData([void Function(GheroIdDataBuilder b) updates]) =
-      _$GheroIdData;
+  factory GheroIdData([Function(GheroIdDataBuilder b) updates]) = _$GheroIdData;
 
   static void _initializeBuilder(GheroIdDataBuilder b) =>
       b..G__typename = 'Character';

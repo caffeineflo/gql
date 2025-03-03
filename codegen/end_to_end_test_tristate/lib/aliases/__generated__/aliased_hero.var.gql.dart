@@ -15,13 +15,13 @@ abstract class GAliasedHeroVars
     implements Built<GAliasedHeroVars, GAliasedHeroVarsBuilder> {
   GAliasedHeroVars._();
 
-  factory GAliasedHeroVars([void Function(GAliasedHeroVarsBuilder b) updates]) =
+  factory GAliasedHeroVars([Function(GAliasedHeroVarsBuilder b) updates]) =
       _$GAliasedHeroVars;
 
-  factory GAliasedHeroVars.create({required _i1.GEpisode ep}) =>
-      GAliasedHeroVars((b) => b..ep = ep);
-
   _i1.GEpisode get ep;
+  static Serializer<GAliasedHeroVars> get serializer =>
+      _$gAliasedHeroVarsSerializer;
+
   Map<String, dynamic> toJson() => (_i2.serializers.serializeWith(
         GAliasedHeroVars.serializer,
         this,
@@ -32,49 +32,4 @@ abstract class GAliasedHeroVars
         GAliasedHeroVars.serializer,
         json,
       );
-
-  @BuiltValueSerializer(custom: true, serializeNulls: true)
-  static Serializer<GAliasedHeroVars> get serializer =>
-      GAliasedHeroVarsSerializer();
-}
-
-final class GAliasedHeroVarsSerializer
-    extends StructuredSerializer<GAliasedHeroVars> {
-  final String wireName = 'GAliasedHeroVars';
-
-  final Iterable<Type> types = const [GAliasedHeroVars, _$GAliasedHeroVars];
-
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GAliasedHeroVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final result = <Object?>[];
-    result.add('ep');
-    result.add(serializers.serialize(object.ep,
-        specifiedType: const FullType(_i1.GEpisode)));
-    return result;
-  }
-
-  GAliasedHeroVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    final builder = GAliasedHeroVarsBuilder();
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final Object? value = iterator.current;
-      switch (key) {
-        case 'ep':
-          var _$fieldValue = serializers.deserialize(value,
-              specifiedType: const FullType(_i1.GEpisode)) as _i1.GEpisode;
-          builder.ep = _$fieldValue;
-          break;
-      }
-    }
-    return builder.build();
-  }
 }

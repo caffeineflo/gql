@@ -13,10 +13,11 @@ abstract class GHeroNoVarsVars
     implements Built<GHeroNoVarsVars, GHeroNoVarsVarsBuilder> {
   GHeroNoVarsVars._();
 
-  factory GHeroNoVarsVars([void Function(GHeroNoVarsVarsBuilder b) updates]) =
+  factory GHeroNoVarsVars([Function(GHeroNoVarsVarsBuilder b) updates]) =
       _$GHeroNoVarsVars;
 
-  factory GHeroNoVarsVars.create() => GHeroNoVarsVars();
+  static Serializer<GHeroNoVarsVars> get serializer =>
+      _$gHeroNoVarsVarsSerializer;
 
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroNoVarsVars.serializer,
@@ -28,31 +29,4 @@ abstract class GHeroNoVarsVars
         GHeroNoVarsVars.serializer,
         json,
       );
-
-  @BuiltValueSerializer(custom: true, serializeNulls: true)
-  static Serializer<GHeroNoVarsVars> get serializer =>
-      GHeroNoVarsVarsSerializer();
-}
-
-final class GHeroNoVarsVarsSerializer
-    extends StructuredSerializer<GHeroNoVarsVars> {
-  final String wireName = 'GHeroNoVarsVars';
-
-  final Iterable<Type> types = const [GHeroNoVarsVars, _$GHeroNoVarsVars];
-
-  Iterable<Object?> serialize(
-    Serializers serializers,
-    GHeroNoVarsVars object, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return const [];
-  }
-
-  GHeroNoVarsVars deserialize(
-    Serializers serializers,
-    Iterable<Object?> serialized, {
-    FullType specifiedType = FullType.unspecified,
-  }) {
-    return GHeroNoVarsVars();
-  }
 }
