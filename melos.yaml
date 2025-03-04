@@ -4,7 +4,6 @@ packages:
   - "gql"
   - "codegen/**"
   - "gql_pedantic"
-  - "codegen/**"
   - "links/**"
   - "examples/**"
 
