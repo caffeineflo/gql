@@ -21,7 +21,7 @@ scripts:
 
   publish:
     description: Publish all packages to pub.dev
-    run: melos publish
+    run: melos publish --no-private
     packageFilters:
       ignore:
         - "*example*"
@@ -30,7 +30,7 @@ scripts:
 
   version:
     description: Updates versions for all packages
-    run: melos version --no-git-tag-version
+    run: melos version --no-git-tag-version --no-private
 
   clean:
     description: Clean all packages
