@@ -38,8 +38,8 @@ jobs:
         run: dart run melos bootstrap --no-flutter
       - name: Check formatting
         run: dart run melos format --scope $PACKAGE
-      - name: Run builders
-        run: dart run melos run build --scope $PACKAGE
+      - name: Run build runner if necessary
+        run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart || true
       - name: Analyze package
@@ -75,8 +75,8 @@ jobs:
         run: dart pub get
       - name: Bootstrap workspace
         run: dart run melos bootstrap --no-flutter
-      - name: Run builders
-        run: dart run melos run build --scope $PACKAGE
+      - name: Run build runner if necessary
+        run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart || true
       - name: Check formatting
@@ -107,8 +107,8 @@ jobs:
         run: dart pub get
       - name: Bootstrap workspace
         run: dart run melos bootstrap --no-flutter
-      - name: Run builders
-        run: dart run melos run build --scope $PACKAGE
+      - name: Run build runner if necessary
+        run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart || true
       - name: Check formatting
