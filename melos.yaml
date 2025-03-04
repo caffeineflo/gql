@@ -45,8 +45,8 @@ scripts:
   bump-alpha:
     description: Bump all packages to next alpha version
     run: |
-      melos version prerelease \
-        --preid alpha \
+      melos version --prerelease \
+        --preid=alpha \
         --no-git-tag-version \
         --yes
 

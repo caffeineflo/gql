@@ -142,4 +142,4 @@ jobs:
       - name: Validate packages
         run: melos format && melos analyze && melos test
       - name: Publish dry run
-        run: melos publish --dry-run --no-git-tag-version --yes
+        run: melos publish --dry-run --no-git-tag-version --yes --no-private 
