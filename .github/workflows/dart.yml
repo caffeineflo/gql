@@ -35,7 +35,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap
+        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Clean
         run: dart run melos run clean
       - name: Check formatting
@@ -76,7 +76,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap
+        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Clean
         run: dart run melos run clean
       - name: Run builders
@@ -110,7 +110,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap
+        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Clean
         run: dart run melos run clean
       - name: Run builders
@@ -134,7 +134,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap
+        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Bump versions
         run: dart run melos run bump-alpha
       - name: Validate packages

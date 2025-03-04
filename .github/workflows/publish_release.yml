@@ -15,7 +15,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap
+        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Validate packages
         run: dart run melos run clean && dart run melos run format && dart run melos run analyze && dart run melos run test
       - name: Publish packages
