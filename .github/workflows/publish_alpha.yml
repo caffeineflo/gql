@@ -13,13 +13,15 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
-        run: dart pub get
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-flutter
+        run: melos bootstrap --no-flutter
       - name: Bump versions
-        run: dart run melos run bump-alpha
+        run: melos run bump-alpha
       - name: Validate packages
-        run: dart run melos format && dart run melos analyze && dart run melos test
+        run: melos format && melos analyze && melos test
       - name: Publish packages
         env:
           PUB_CREDENTIALS_JSON: ${{ secrets.PUB_CREDENTIALS_JSON }}
@@ -28,4 +30,4 @@ jobs:
           echo $PUB_CREDENTIALS_JSON > $XDG_CONFIG_HOME/dart/pub-credentials.json
           mkdir -p $HOME/.config/dart/
           echo $PUB_CREDENTIALS_JSON > $HOME/.config/dart/pub-credentials.json
-          dart run melos publish --no-dry-run --yes
+          melos publish --no-dry-run --yes

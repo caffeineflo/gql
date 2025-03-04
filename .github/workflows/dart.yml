@@ -33,19 +33,21 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
-        run: dart pub get
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-flutter
+        run: melos bootstrap --no-flutter
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
+        run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart
       - name: Analyze package
-        run: dart run melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE
       - name: Run tests
-        run: dart run melos exec --scope $PACKAGE --dir-exists=test -- dart test
+        run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
   examples:
     strategy:
@@ -72,17 +74,19 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
-        run: dart pub get
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-flutter
+        run: melos bootstrap --no-flutter
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
+        run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
-        run: dart run melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE
 
   builder_tests:
     strategy:
@@ -104,19 +108,21 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
-        run: dart pub get
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-flutter
+        run: melos bootstrap --no-flutter
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
+        run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
-        run: dart run melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE
       - name: Run tests
-        run: dart run melos exec --scope $PACKAGE --dir-exists=test -- dart test
+        run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
   publish_dry_run:
     runs-on: ubuntu-latest
@@ -126,13 +132,14 @@ jobs:
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
-        run: dart pub get
+        run: |
+          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
+          dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-flutter
+        run: melos bootstrap --no-flutter
       - name: Bump versions
-        run: dart run melos run bump-alpha
+        run: melos run bump-alpha
       - name: Validate packages
-        run: dart run melos format && dart run melos analyze && dart run melos test
+        run: melos format && melos analyze && melos test
       - name: Publish dry run
-        run: dart run melos publish --dry-run --no-git-tag-version --yes
-
+        run: melos publish --dry-run --no-git-tag-version --yes
