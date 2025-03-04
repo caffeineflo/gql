@@ -37,11 +37,11 @@ jobs:
       - name: Bootstrap workspace
         run: dart run melos bootstrap --no-flutter
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE
+        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
-        run: git diff --exit-code **/*.gql.dart || true
+        run: git diff --exit-code **/*.gql.dart
       - name: Analyze package
         run: dart run melos analyze --scope $PACKAGE
       - name: Run tests
@@ -78,9 +78,9 @@ jobs:
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
-        run: git diff --exit-code **/*.gql.dart || true
+        run: git diff --exit-code **/*.gql.dart
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE
+        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
         run: dart run melos analyze --scope $PACKAGE
 
@@ -110,9 +110,9 @@ jobs:
       - name: Run build runner if necessary
         run: dart run build_runner build --delete-conflicting-outputs || true
       - name: Check build diff
-        run: git diff --exit-code **/*.gql.dart || true
+        run: git diff --exit-code **/*.gql.dart
       - name: Check formatting
-        run: dart run melos format --scope $PACKAGE
+        run: dart run melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
         run: dart run melos analyze --scope $PACKAGE
       - name: Run tests
