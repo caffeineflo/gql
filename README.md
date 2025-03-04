@@ -179,30 +179,6 @@ The workspace is configured with:
 
 See [melos.yaml](melos.yaml) for the complete configuration.
 
-### `multipack` (Deprecated)
-This repo uses [`multipack`](https://github.com/gql-dart/multipack). To activate it run the following command.
-```bash
-pub global activate multipack
-```
-
-`multipack` provides a simple way of running commands in multiple packages at once. It builds a directed graph of packages
-to run commands in topological order.
-
-Link all local packages by running
-```bash
-multipack pubspec override
-```
-
-Get all packages by running
-```bash
-multipack pub get
-```
-
-Clean up the pubspec file before publishing
-```bash
-multipack pubspec clean
-```
-
 See more usage examples in [.github/workflows/dart.yml](.github/workflows/dart.yml).
 
 ## Features and bugs
