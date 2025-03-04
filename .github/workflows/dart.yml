@@ -45,7 +45,7 @@ jobs:
       - name: Analyze package
         run: dart run melos analyze --scope $PACKAGE
       - name: Run tests
-        run: dart run melos test --scope $PACKAGE
+        run: dart run melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
   examples:
     strategy:
@@ -116,7 +116,7 @@ jobs:
       - name: Analyze package
         run: dart run melos analyze --scope $PACKAGE
       - name: Run tests
-        run: dart run melos test --scope $PACKAGE
+        run: dart run melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
   publish_dry_run:
     runs-on: ubuntu-latest
