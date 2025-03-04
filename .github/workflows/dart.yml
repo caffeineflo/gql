@@ -36,8 +36,6 @@ jobs:
         run: dart pub get
       - name: Bootstrap workspace
         run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
-      - name: Clean
-        run: dart run melos run clean
       - name: Check formatting
         run: dart run melos run format --scope $PACKAGE
       - name: Run builders
@@ -77,8 +75,6 @@ jobs:
         run: dart pub get
       - name: Bootstrap workspace
         run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
-      - name: Clean
-        run: dart run melos run clean
       - name: Run builders
         run: dart run melos run build --scope $PACKAGE
       - name: Check build diff
@@ -111,8 +107,6 @@ jobs:
         run: dart pub get
       - name: Bootstrap workspace
         run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
-      - name: Clean
-        run: dart run melos run clean
       - name: Run builders
         run: dart run melos run build --scope $PACKAGE
       - name: Check build diff
@@ -138,7 +132,7 @@ jobs:
       - name: Bump versions
         run: dart run melos run bump-alpha
       - name: Validate packages
-        run: dart run melos run clean && dart run melos run format && dart run melos run analyze && dart run melos run test
+        run: dart run melos run format && dart run melos run analyze && dart run melos run test
       - name: Publish dry run
         run: dart run melos publish --dry-run --no-git-tag-version --yes
 

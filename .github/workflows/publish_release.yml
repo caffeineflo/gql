@@ -17,7 +17,7 @@ jobs:
       - name: Bootstrap workspace
         run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
       - name: Validate packages
-        run: dart run melos run clean && dart run melos run format && dart run melos run analyze && dart run melos run test
+        run: dart run melos run format && dart run melos run analyze && dart run melos run test
       - name: Publish packages
         env:
           PUB_CREDENTIALS_JSON: ${{ secrets.PUB_CREDENTIALS_JSON }}
