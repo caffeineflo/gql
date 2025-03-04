@@ -45,7 +45,7 @@ jobs:
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart
       - name: Analyze package
-        run: melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE --fatal-warnings
       - name: Run tests
         run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
@@ -86,7 +86,7 @@ jobs:
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
-        run: melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE --fatal-warnings
 
   builder_tests:
     strategy:
@@ -120,7 +120,7 @@ jobs:
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Analyze package
-        run: melos analyze --scope $PACKAGE
+        run: melos analyze --scope $PACKAGE --fatal-warnings
       - name: Run tests
         run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
 
