@@ -2,10 +2,10 @@ name: gql
 
 packages:
   - "gql"
-  - "codegen/**"
+  - "codegen/*"
   - "gql_pedantic"
-  - "links/**"
-  - "examples/**"
+  - "links/*"
+  - "examples/*"
 
 scripts:
   analyze:
