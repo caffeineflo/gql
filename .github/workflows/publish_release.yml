@@ -9,18 +9,15 @@ jobs:
     container:
       image: dart:latest
     if: github.ref == 'refs/heads/release'
-    env:
-      PACKAGES: 'gql,gql_build,gql_code_builder,gql_dedupe_link,gql_dio_link,gql_exec,gql_http_link,gql_link,gql_pedantic,gql_transform_link,gql_error_link,gql_websocket_link'
     steps:
       - name: Clone repository
-        uses: actions/checkout@v2
-      - name: Activate multipack
-        run: |
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          dart pub global activate multipack
-      - name: Sync package versions
-        run: |
-          multipack --only $PACKAGES pubspec sync-versions
+        uses: actions/checkout@v4
+      - name: Install melos
+        run: dart pub get
+      - name: Bootstrap workspace
+        run: dart run melos bootstrap --no-git
+      - name: Validate packages
+        run: dart run melos run clean && dart run melos run format && dart run melos run analyze && dart run melos run test
       - name: Publish packages
         env:
           PUB_CREDENTIALS_JSON: ${{ secrets.PUB_CREDENTIALS_JSON }}
@@ -29,4 +26,4 @@ jobs:
           echo $PUB_CREDENTIALS_JSON > $XDG_CONFIG_HOME/dart/pub-credentials.json
           mkdir -p $HOME/.config/dart/
           echo $PUB_CREDENTIALS_JSON > $HOME/.config/dart/pub-credentials.json
-          multipack --only $PACKAGES pub publish --force
+          dart run melos publish --no-dry-run --yes
