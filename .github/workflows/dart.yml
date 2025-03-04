@@ -41,7 +41,7 @@ jobs:
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
       - name: Run build runner if necessary
-        run: dart run build_runner build --delete-conflicting-outputs || true
+        run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs
       - name: Check build diff
         run: git diff --exit-code **/*.gql.dart
       - name: Analyze package
