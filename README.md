@@ -153,7 +153,7 @@ and to build a community around this vendor-neutral implementation.
 
 Community contributions are welcome.
 
-### `multipack`
+### `multipack` (Deprecated)
 This repo uses [`multipack`](https://github.com/gql-dart/multipack). To activate it run the following command.
 ```bash
 pub global activate multipack
