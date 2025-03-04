@@ -35,7 +35,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
+        run: dart run melos bootstrap --no-flutter
       - name: Check formatting
         run: dart run melos run format --scope $PACKAGE
       - name: Run builders
@@ -74,7 +74,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
+        run: dart run melos bootstrap --no-flutter
       - name: Run builders
         run: dart run melos run build --scope $PACKAGE
       - name: Check build diff
@@ -106,7 +106,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
+        run: dart run melos bootstrap --no-flutter
       - name: Run builders
         run: dart run melos run build --scope $PACKAGE
       - name: Check build diff
@@ -128,7 +128,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --ignore="examples/gql_example_flutter/**"
+        run: dart run melos bootstrap --no-flutter
       - name: Bump versions
         run: dart run melos run bump-alpha
       - name: Validate packages
