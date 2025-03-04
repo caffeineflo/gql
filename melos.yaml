@@ -6,12 +6,10 @@ packages:
   - "gql_pedantic"
   - "links/*"
   - "examples/*"
+ignore:
+  - "examples/gql_example_flutter"
 
 scripts:
-  analyze:
-    run: dart analyze .
-    description: Analyze the entire monorepo
-
   test:
     run: dart test
     description: Run tests for the entire monorepo
@@ -20,10 +18,6 @@ scripts:
     packageFilters:
       dirExists: test
       ignore: "*example*"
-
-  format:
-    run: dart format --set-exit-if-changed .
-    description: Format the entire monorepo
 
   publish:
     description: Publish all packages to pub.dev

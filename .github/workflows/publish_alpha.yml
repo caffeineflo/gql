@@ -19,7 +19,7 @@ jobs:
       - name: Bump versions
         run: dart run melos run bump-alpha
       - name: Validate packages
-        run: dart run melos run format && dart run melos run analyze && dart run melos run test
+        run: dart run melos format && dart run melos analyze && dart run melos test
       - name: Publish packages
         env:
           PUB_CREDENTIALS_JSON: ${{ secrets.PUB_CREDENTIALS_JSON }}

@@ -168,9 +168,9 @@ melos bootstrap
 ```
 
 Available Scripts:
-- `melos run analyze` - Analyze the entire monorepo
-- `melos run test` - Run tests for all packages (excluding examples)
-- `melos run format` - Format the entire monorepo
+- `melos analyze` - Analyze the entire monorepo
+- `melos test` - Run tests for all packages (excluding examples)
+- `melos format` - Format the entire monorepo
 
 The workspace is configured with:
 - Automatic discovery of packages in `gql`, `codegen`, `links`, and `examples` directories
