@@ -15,7 +15,7 @@ jobs:
       - name: Install melos
         run: dart pub get
       - name: Bootstrap workspace
-        run: dart run melos bootstrap --no-git
+        run: dart run melos bootstrap
       - name: Bump versions
         run: dart run melos run bump-alpha
       - name: Validate packages
