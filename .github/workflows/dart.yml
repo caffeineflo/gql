@@ -128,29 +128,7 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: dart
-    strategy:
-      fail-fast: false
-      matrix:
-        package:
-          - gql
-          - gql_exec
-          - gql_tristate_value
-          - gql_link
-          - gql_dedupe_link
-          - gql_dio_link
-          - gql_error_link
-          - gql_http_link
-          - gql_websocket_link
-          - gql_transform_link
-          - gql_code_builder_serializers
-          - gql_code_builder
-          - gql_build
-          - gql_pedantic
-    name: Publish dry run ${{ matrix.package }}
     steps:
-      - name: Workaround for "detected dubious ownership in repository at", see https://github.com/actions/checkout/issues/1169
-        run: |
-          git config --system --add safe.directory /__w/gql/gql
       - name: Clone repository
         uses: actions/checkout@v4
       - name: Install melos
@@ -159,22 +137,9 @@ jobs:
           dart pub global activate melos && dart pub get
       - name: Bootstrap workspace
         run: melos bootstrap --no-flutter
-      - name: Bump package version
-        run: |
-          melos version --scope="${{ matrix.package }}" \
-            --prerelease \
-            --preid=alpha \
-            --no-git-tag-version \
-            --no-dependent-constraints \
-            --no-dependent-versions \
-            --no-private \
-            --yes
+      - name: Bump versions
+        run: melos run bump-alpha
       - name: Validate packages
         run: melos format && melos analyze && melos test
-      - name: Validate and publish dry run
-        run: |
-          melos publish --scope="${{ matrix.package }}" \
-            --dry-run \
-            --no-git-tag-version \
-            --no-private \
-            --yes
+      - name: Publish dry run
+        run: melos exec -- "dart pub publish --dry-run" 

@@ -47,7 +47,7 @@ scripts:
     run: |
       melos version --prerelease \
         --preid=alpha \
-        --no-git-tag-version \
+        --no-git-commit-version \
         --yes
 
 command:
