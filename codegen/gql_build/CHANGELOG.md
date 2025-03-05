@@ -1,3 +1,11 @@
+## 0.11.1
+
+ - **FIX**(gql_code_builder): Fixing nullables and type overrides for vars create factories (#444).
+ - **FIX**(gql_code_builder): properly generate nullable types for nullable elements in lists (#363).
+ - **FEAT**: allow distinguishing between null and absent values in gql_code_builder (#381).
+ - **FEAT**(gql_code_builder): add when() method to fragment spread classes (#377).
+ - **FEAT**: build possible types map.
+
 # 0.11.0
 
 - Adding 'vars_create_factories' option to create factory initializers with required parameters (#434)

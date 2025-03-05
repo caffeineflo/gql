@@ -1,3 +1,7 @@
+## 2.1.0
+
+ - **FEAT**(dedupe_link): Add shouldDedupe option (#429).
+
 ## 2.0.3+1
 
 - add topics
