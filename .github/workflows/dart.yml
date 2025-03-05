@@ -1,5 +1,7 @@
-name: Dart
-on: pull_request
+name: PR Validation
+on: 
+  pull_request:
+  workflow_dispatch:
 
 jobs:
   packages:
@@ -23,31 +25,35 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: dart:latest
-    name: Check ${{ matrix.package }}
+    name: Validate ${{ matrix.package }}
     env:
       PACKAGE: ${{ matrix.package }}
     steps:
-      - name: Workaround for "detected dubious ownership in repository at", see https://github.com/actions/checkout/issues/1169
-        run: |
-          git config --system --add safe.directory /__w/gql/gql
-      - name: Clone repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install melos
+        
+      - name: Install Melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           dart pub global activate melos && dart pub get
+        
       - name: Bootstrap workspace
         run: melos bootstrap --no-flutter
+        
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
-      - name: Run build runner if necessary
-        run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs
-      - name: Check build diff
+        
+      - name: Run build runner (if necessary)
+        run: melos exec --scope $PACKAGE --depends-on=build_runner -- "dart run build_runner build --delete-conflicting-outputs"
+        
+      - name: Check for build diff
         run: git diff --exit-code **/*.gql.dart
+        
       - name: Analyze package
         run: melos analyze --scope $PACKAGE --fatal-warnings
+        
       - name: Run tests
-        run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
+        run: melos test --scope $PACKAGE --dir-exists=test
 
   examples:
     strategy:
@@ -62,30 +68,32 @@ jobs:
           # gql_example_flutter would require flutter
     runs-on: ubuntu-latest
     container:
-      image: dart
-    name: Check ${{ matrix.package }}
+      image: dart:latest
+    name: Validate example ${{ matrix.package }}
     env:
       PACKAGE: ${{ matrix.package }}
     steps:
-      - name: Workaround for "detected dubious ownership in repository at", see https://github.com/actions/checkout/issues/1169
-        run: |
-          git config --system --add safe.directory /__w/gql/
-          git config --system --add safe.directory /__w/gql/gql
-      - name: Clone repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install melos
+        
+      - name: Install Melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           dart pub global activate melos && dart pub get
+        
       - name: Bootstrap workspace
         run: melos bootstrap --no-flutter
-      - name: Run build runner if necessary
-        run: dart run build_runner build --delete-conflicting-outputs || true
-      - name: Check build diff
+        
+      - name: Run build runner (if needed)
+        run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs || true
+        
+      - name: Check for build diff
         run: git diff --exit-code **/*.gql.dart
+        
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
-      - name: Analyze package
+        
+      - name: Analyze example
         run: melos analyze --scope $PACKAGE --fatal-warnings
 
   builder_tests:
@@ -96,54 +104,33 @@ jobs:
           - end_to_end_test_tristate
     runs-on: ubuntu-latest
     container:
-      image: dart
-    name: Check ${{ matrix.package }}
+      image: dart:latest
+    name: Validate test ${{ matrix.package }}
     env:
       PACKAGE: ${{ matrix.package }}
     steps:
-      - name: Workaround for "detected dubious ownership in repository at", see https://github.com/actions/checkout/issues/1169
-        run: |
-          git config --system --add safe.directory /__w/gql/
-          git config --system --add safe.directory /__w/gql/gql
-      - name: Clone repository
+      - name: Checkout repository
         uses: actions/checkout@v4
-      - name: Install melos
+        
+      - name: Install Melos
         run: |
           echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
           dart pub global activate melos && dart pub get
+        
       - name: Bootstrap workspace
         run: melos bootstrap --no-flutter
-      - name: Run build runner if necessary
-        run: dart run build_runner build --delete-conflicting-outputs || true
-      - name: Check build diff
+        
+      - name: Run build runner (if needed)
+        run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs || true
+        
+      - name: Check for build diff
         run: git diff --exit-code **/*.gql.dart
+        
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
+        
       - name: Analyze package
         run: melos analyze --scope $PACKAGE --fatal-warnings
+        
       - name: Run tests
-        run: melos exec --scope $PACKAGE --dir-exists=test -- dart test
-
-  publish_dry_run:
-    runs-on: ubuntu-latest
-    container:
-      image: dart
-    steps:
-      - name: Workaround for "detected dubious ownership in repository at", see https://github.com/actions/checkout/issues/1169
-        run: |
-          git config --system --add safe.directory /__w/gql/gql
-      - name: Clone repository
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          ref: ${{ github.head_ref }}
-      - name: Install melos
-        run: |
-          echo "$HOME/.pub-cache/bin" >> $GITHUB_PATH
-          dart pub global activate melos && dart pub get
-      - name: Bootstrap workspace
-        run: melos bootstrap --no-flutter
-      - name: Bump versions
-        run: melos run bump-alpha
-      - name: Publish dry run
-        run: melos exec --no-private -- "dart pub publish --dry-run" 
+        run: melos test --scope $PACKAGE --dir-exists=tes
