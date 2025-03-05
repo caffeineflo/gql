@@ -54,22 +54,6 @@ scripts:
         - "end_to_end_test"
         - "end_to_end_test_tristate"
 
-  version:
-    description: Updates versions for all packages
-    run: melos version --no-git-tag-version --no-private
-
-  minor-version:
-    description: Updates versions for all packages
-    run: melos version --minor --no-git-tag-version --no-private
-
-  major-version:
-    description: Updates versions for all packages
-    run: melos version --major --no-git-tag-version --no-private
-
-  patch-version:
-    description: Updates versions for all packages
-    run: melos version --patch --no-git-tag-version --no-private
-
   clean:
     description: Clean all packages
     run: melos clean
@@ -85,7 +69,38 @@ scripts:
     run: |
       melos version --prerelease \
         --preid=alpha \
-        --no-git-tag-version \
+        --no-private \
+        --yes
+
+  # Major version bump
+  bump-major:
+    description: Bump all packages to next major version
+    run: |
+      melos version --major \
+        --no-private \
+        --yes
+
+  # Minor version bump
+  bump-minor:
+    description: Bump all packages to next minor version
+    run: |
+      melos version --minor \
+        --no-private \
+        --yes
+
+  # Patch version bump
+  bump-patch:
+    description: Bump all packages to next patch version
+    run: |
+      melos version --patch \
+        --no-private \
+        --yes
+
+  # Graduate from prerelease to stable
+  graduate:
+    description: Graduate prerelease versions to stable
+    run: |
+      melos version --graduate \
         --no-private \
         --yes
 
