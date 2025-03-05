@@ -9,6 +9,32 @@ packages:
 ignore:
   - "examples/gql_example_flutter"
 
+categories:
+  packages:
+    - "gql"
+    - "gql_pedantic"
+    - "codegen/gql_build"
+    - "codegen/gql_code_builder"
+    - "codegen/gql_code_builder_serializers"
+    - "codegen/gql_tristate_value"
+    - "links/gql_exec"
+    - "links/gql_link"
+    - "links/gql_dedupe_link"
+    - "links/gql_dio_link"
+    - "links/gql_error_link"
+    - "links/gql_http_link"
+    - "links/gql_websocket_link"
+    - "links/gql_transform_link"
+  builders:
+    - "codegen/end_to_end_test"
+    - "codegen/end_to_end_test_tristate"
+  examples:
+    - "examples/gql_example_cli"
+    - "examples/gql_example_cli_github"
+    - "examples/gql_example_build"
+    - "examples/gql_example_http_auth_link"
+    - "examples/gql_example_dio_link"
+
 scripts:
   test:
     run: dart test
