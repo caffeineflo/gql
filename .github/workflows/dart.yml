@@ -47,7 +47,13 @@ jobs:
         run: melos exec --scope $PACKAGE --depends-on=build_runner -- "dart run build_runner build --delete-conflicting-outputs"
         
       - name: Check for build diff
-        run: git diff --exit-code **/*.gql.dart
+        run: |
+          # Use git status instead of git diff to check for modified files
+          if git status --porcelain | grep -q "\.gql\.dart$"; then
+            echo "Generated .gql.dart files have changes that need to be committed"
+            git status --porcelain | grep "\.gql\.dart$"
+            exit 1
+          fi
         
       - name: Analyze package
         run: melos analyze --scope $PACKAGE --fatal-warnings
@@ -88,7 +94,13 @@ jobs:
         run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs || true
         
       - name: Check for build diff
-        run: git diff --exit-code **/*.gql.dart
+        run: |
+          # Use git status instead of git diff to check for modified files
+          if git status --porcelain | grep -q "\.gql\.dart$"; then
+            echo "Generated .gql.dart files have changes that need to be committed"
+            git status --porcelain | grep "\.gql\.dart$"
+            exit 1
+          fi
         
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
@@ -124,7 +136,13 @@ jobs:
         run: melos exec --scope $PACKAGE --depends-on=build_runner -- dart run build_runner build --delete-conflicting-outputs || true
         
       - name: Check for build diff
-        run: git diff --exit-code **/*.gql.dart
+        run: |
+          # Use git status instead of git diff to check for modified files
+          if git status --porcelain | grep -q "\.gql\.dart$"; then
+            echo "Generated .gql.dart files have changes that need to be committed"
+            git status --porcelain | grep "\.gql\.dart$"
+            exit 1
+          fi
         
       - name: Check formatting
         run: melos format --scope $PACKAGE --set-exit-if-changed
