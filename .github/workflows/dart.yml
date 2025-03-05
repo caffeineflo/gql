@@ -142,4 +142,4 @@ jobs:
       - name: Validate packages
         run: melos format && melos analyze && melos test
       - name: Publish dry run
-        run: melos exec -- "dart pub publish --dry-run" 
+        run: melos exec --no-private -- "dart pub publish --dry-run" 

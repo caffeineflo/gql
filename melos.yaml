@@ -48,6 +48,7 @@ scripts:
       melos version --prerelease \
         --preid=alpha \
         --no-git-commit-version \
+        --no-private \
         --yes
 
 command:
