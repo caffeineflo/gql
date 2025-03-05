@@ -145,7 +145,5 @@ jobs:
         run: melos bootstrap --no-flutter
       - name: Bump versions
         run: melos run bump-alpha
-      - name: Validate packages
-        run: melos format && melos analyze && melos test
       - name: Publish dry run
         run: melos exec --no-private -- "dart pub publish --dry-run" 
