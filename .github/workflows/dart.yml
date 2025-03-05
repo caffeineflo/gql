@@ -141,7 +141,13 @@ jobs:
       - name: Bootstrap workspace
         run: melos bootstrap --no-flutter
       - name: Bump versions
-        run: melos run bump-alpha
+        run: |
+          melos version --prerelease \
+            --preid=alpha \
+            --no-git-commit-version \
+            --no-private \
+            --no-changelog \
+            --yes
       - name: Validate packages
         run: melos format && melos analyze && melos test
       - name: Publish dry run
