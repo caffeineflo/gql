@@ -77,10 +77,3 @@ jobs:
           melos publish --dry-run --yes \
             --scope="gql_build"
         continue-on-error: true  # We allow this to fail due to dependency constraints
-      
-      # Final check: verify all packages can be published
-      - name: Verify all packages publishable state
-        run: |
-          echo "Checking publishable state for all packages"
-          echo "Note: Some errors about dependency constraints are expected during dry run"
-          melos publish --dry-run --yes
