@@ -72,35 +72,39 @@ scripts:
         --no-private \
         --yes
 
-  # Major version bump
+  # Major version bump for all non-private packages
   bump-major:
     description: Bump all packages to next major version
     run: |
-      melos version --major \
+      melos version \
         --no-private \
-        --yes
+        --yes \
+        $(melos list --no-private --json | jq -r '.[] | "--manual-version=\(.name):major"')
 
-  # Minor version bump
+  # Minor version bump for all non-private packages
   bump-minor:
     description: Bump all packages to next minor version
     run: |
-      melos version --minor \
+      melos version \
         --no-private \
-        --yes
+        --yes \
+        $(melos list --no-private --json | jq -r '.[] | "--manual-version=\(.name):minor"')
 
-  # Patch version bump
+  # Patch version bump for all non-private packages
   bump-patch:
     description: Bump all packages to next patch version
     run: |
-      melos version --patch \
+      melos version \
         --no-private \
-        --yes
+        --yes \
+        $(melos list --no-private --json | jq -r '.[] | "--manual-version=\(.name):patch"')
 
   # Graduate from prerelease to stable
   graduate:
     description: Graduate prerelease versions to stable
     run: |
-      melos version --graduate \
+      melos version \
+        --graduate \
         --no-private \
         --yes
 
