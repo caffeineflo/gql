@@ -58,6 +58,18 @@ scripts:
     description: Updates versions for all packages
     run: melos version --no-git-tag-version --no-private
 
+  minor-version:
+    description: Updates versions for all packages
+    run: melos version --minor --no-git-tag-version --no-private
+
+  major-version:
+    description: Updates versions for all packages
+    run: melos version --major --no-git-tag-version --no-private
+
+  patch-version:
+    description: Updates versions for all packages
+    run: melos version --patch --no-git-tag-version --no-private
+
   clean:
     description: Clean all packages
     run: melos clean
