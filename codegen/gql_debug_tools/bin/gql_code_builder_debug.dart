@@ -90,6 +90,6 @@ void main(List<String> args) async {
     File(outputPath).writeAsStringSync(code);
     print("Generated code written to $outputPath");
   } else {
-    print(code);
+    //print(code);
   }
 }
