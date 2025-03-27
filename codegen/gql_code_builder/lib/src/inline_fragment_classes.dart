@@ -8,38 +8,27 @@ import "./common.dart";
 import "./operation/data.dart";
 import "utils/fragment_utils.dart";
 
+/// Helper class to manage interface hierarchy and specialization
+class _InterfaceContext {
+  final Map<String, Set<String>> hierarchy = {};
+  final Map<String, String> specializations = {};
+
+  void addInterface(String name) {
+    final parts = name.split("__");
+    final base = parts[0];
+    hierarchy.putIfAbsent(base, () => {});
+    if (parts.length > 1) {
+      hierarchy[base]!.add(name);
+    }
+  }
+
+  String specialize(String baseName, String type) {
+    final key = "$baseName:$type";
+    return specializations.putIfAbsent(key, () => "${baseName}__as$type");
+  }
+}
+
 /// Builds a set of classes to represent GraphQL inline fragments in Dart.
-///
-/// For a GraphQL query with inline fragments (like `... on Human { name }`),
-/// this function generates:
-///
-/// 1. An abstract root class that all concrete classes implement
-/// 2. A "base" class containing common fields shared across all types
-/// 3. Type-specific classes for each inline fragment type condition
-///
-/// The resulting classes work with built_value for serialization and include
-/// helper methods for safely accessing type-specific fields.
-///
-/// Example:
-/// ```graphql
-/// query Hero {
-///   hero {
-///     name
-///     ... on Human {
-///       height
-///     }
-///     ... on Droid {
-///       primaryFunction
-///     }
-///   }
-/// }
-/// ```
-///
-/// Will generate:
-/// - An abstract GHero_hero class
-/// - A GHero_hero__base class with the common field 'name'
-/// - A GHero_hero__asHuman class with the Human-specific field 'height'
-/// - A GHero_hero__asDroid class with the Droid-specific field 'primaryFunction'
 List<Spec> buildInlineFragmentClasses({
   required String name,
   required List<Method> fieldGetters,
@@ -128,9 +117,6 @@ List<Spec> buildInlineFragmentClasses({
 }
 
 /// Builds the abstract root class that all concrete fragment classes implement.
-///
-/// This class defines the interface that all concrete implementations must satisfy
-/// and includes serialization methods if built=true.
 Class _buildRootClass({
   required String name,
   required List<Method> fieldGetters,
@@ -210,9 +196,6 @@ Extension? _buildWhenExtension({
     );
 
 /// Builds the base class containing fields common to all fragment types.
-///
-/// This class implements the abstract root class and contains fields that
-/// are present in all possible concrete implementations.
 List<Spec> _buildBaseClass({
   required String name,
   required List<SelectionNode> baseClassSelections,
@@ -243,16 +226,12 @@ List<Spec> _buildBaseClass({
       },
       built: built,
       whenExtensionConfig: whenExtensionConfig,
-      // Keep the original parameters exactly as they were
       isBaseClass: true,
       parentInlineFragments: inlineFragments,
       typeMap: typeMap,
     );
 
 /// Builds type-specific classes for each inline fragment.
-///
-/// For each type condition (like "Human" or "Droid"), creates a specific class
-/// that includes both the common fields and the type-specific fields.
 List<Spec> _buildTypeSpecificClasses({
   required String name,
   required List<SelectionNode> baseClassSelections,
@@ -270,38 +249,75 @@ List<Spec> _buildTypeSpecificClasses({
   required Map<String, String> typeMap,
 }) {
   final List<Spec> result = [];
+  final context = _InterfaceContext();
+  final baseName = name.split("__").first;
 
-  // Process only inline fragments with type conditions that aren't overridden by aliases
-  for (final inlineFragment in inlineFragments.where((frag) {
-    if (frag.typeCondition == null) {
-      return false;
-    }
-    final typeName =
-        builtClassName("${name}__as${frag.typeCondition!.on.name.value}");
-    return !dataClassAliasMap.containsKey(typeName);
-  })) {
+  // First pass: Build interface hierarchy from superclass selections
+  for (final superName in superclassSelections.keys) {
+    context.addInterface(superName);
+  }
+
+  // Process fragments with type conditions
+  for (final inlineFragment in inlineFragments.where((frag) =>
+      frag.typeCondition != null &&
+      !dataClassAliasMap.containsKey(builtClassName(
+          context.specialize(baseName, frag.typeCondition!.on.name.value))))) {
     final fragmentTypeName = inlineFragment.typeCondition!.on.name.value;
     final fragmentClassName = "${name}__as$fragmentTypeName";
 
-    // Handle superclass hierarchy with the same logic as the original implementation
+    // Initialize expanded selections with original superclass selections
     final expandedSuperclassSelections = {...superclassSelections};
+    final nestedInterfaceMap = <String, String>{};
 
-    // Process specialized interfaces
-    for (final superName in superclassSelections.keys.toList()) {
-      final specializedName = "${superName}__as$fragmentTypeName";
+    // Process each base interface found in the hierarchy
+    for (final baseInterfaceName in context.hierarchy.keys) {
+      final specializedName =
+          context.specialize(baseInterfaceName, fragmentTypeName);
 
-      // Check if specialized interface exists
+      // Add base interface selection if not already present
+      if (!expandedSuperclassSelections.containsKey(baseInterfaceName)) {
+        expandedSuperclassSelections[baseInterfaceName] =
+            superclassSelections[baseInterfaceName] ??
+                SourceSelections(url: null, selections: selections);
+      }
+
+      // Process specialized interfaces if the current fragment matches the type condition
       final hasSpecializedInterface = inlineFragments.any((f) =>
           f.typeCondition != null &&
           f.typeCondition!.on.name.value == fragmentTypeName);
 
-      // Apply the same logic for interface implementation
-      if (hasSpecializedInterface && superName != name) {
-        expandedSuperclassSelections[specializedName] =
-            superclassSelections[superName]!;
+      if (hasSpecializedInterface) {
+        // Track specialized interface names
+        nestedInterfaceMap[baseInterfaceName] = specializedName;
 
-        if (superName != name) {
-          expandedSuperclassSelections.remove(superName);
+        // Add specialized interface selection, merging with base and fragment selections
+        expandedSuperclassSelections[specializedName] = SourceSelections(
+          url: superclassSelections[baseInterfaceName]?.url,
+          selections: [
+            ...superclassSelections[baseInterfaceName]?.selections ?? [],
+            ...inlineFragment.selectionSet.selections,
+          ],
+        );
+
+        // Process nested specialized interfaces (e.g., for fields like 'friends')
+        for (final specializedInterface
+            in context.hierarchy[baseInterfaceName] ?? {}) {
+          final nestedBaseName = specializedInterface.split("__").first;
+          final nestedSpecializedName =
+              context.specialize(nestedBaseName, fragmentTypeName);
+
+          // Add selections for nested specialized interfaces
+          expandedSuperclassSelections[nestedSpecializedName] =
+              SourceSelections(
+            url: superclassSelections[specializedInterface]?.url,
+            selections: [
+              ...superclassSelections[specializedInterface]?.selections ?? [],
+              ...inlineFragment.selectionSet.selections,
+            ],
+          );
+
+          // Map nested interfaces
+          nestedInterfaceMap[specializedInterface] = nestedSpecializedName;
         }
       }
     }
@@ -310,10 +326,42 @@ List<Spec> _buildTypeSpecificClasses({
     expandedSuperclassSelections[name] =
         SourceSelections(url: null, selections: selections);
 
-    // Extract fragment-specific selections (excluding nested inline fragments)
+    // Extract fragment-specific selections, processing nested fields
     final fragmentSpecificSelections = inlineFragment.selectionSet.selections
         .where((s) => s is! InlineFragmentNode)
-        .toList();
+        .map((s) {
+      if (s is FieldNode && s.selectionSet != null) {
+        // Create new field node with properly named nested selections
+        return FieldNode(
+          name: s.name,
+          alias: s.alias,
+          arguments: s.arguments,
+          directives: s.directives,
+          selectionSet: SelectionSetNode(
+            selections: s.selectionSet!.selections.map((nested) {
+              if (nested is FieldNode) {
+                final nestedFieldName =
+                    nested.alias?.value ?? nested.name.value;
+                // Use consistent naming for nested interface fields based on the current fragment context
+                final consistentNestedName = "${name}_${nestedFieldName}";
+                if (nestedInterfaceMap.containsKey(consistentNestedName)) {
+                  // Return the FieldNode as is, letting buildSelectionSetDataClasses handle the type
+                  return FieldNode(
+                    name: nested.name,
+                    alias: nested.alias,
+                    arguments: nested.arguments,
+                    directives: nested.directives,
+                    selectionSet: nested.selectionSet,
+                  );
+                }
+              }
+              return nested;
+            }).toList(),
+          ),
+        );
+      }
+      return s;
+    }).toList();
 
     // Build the classes for this specific fragment type
     result.addAll(buildSelectionSetDataClasses(
