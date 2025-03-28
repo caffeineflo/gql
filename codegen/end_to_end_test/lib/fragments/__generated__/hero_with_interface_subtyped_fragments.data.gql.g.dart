@@ -435,15 +435,6 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanSe
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.friends;
-    if (value != null) {
-      result
-        ..add('friends')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType.nullable(GheroFieldsFragment__asHuman_friends)
-            ])));
-    }
     return result;
   }
 
@@ -475,12 +466,6 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanSe
         case 'homePlanet':
           result.homePlanet = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'friends':
-          result.friends.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType.nullable(GheroFieldsFragment__asHuman_friends)
-              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -857,15 +842,6 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHumanSerializer
         ..add(serializers.serialize(value,
             specifiedType: const FullType(String)));
     }
-    value = object.friends;
-    if (value != null) {
-      result
-        ..add('friends')
-        ..add(serializers.serialize(value,
-            specifiedType: const FullType(BuiltList, const [
-              const FullType.nullable(GheroFieldsFragment__asHuman_friends)
-            ])));
-    }
     return result;
   }
 
@@ -897,12 +873,6 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHumanSerializer
         case 'homePlanet':
           result.homePlanet = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String?;
-          break;
-        case 'friends':
-          result.friends.replace(serializers.deserialize(value,
-              specifiedType: const FullType(BuiltList, const [
-                const FullType.nullable(GheroFieldsFragment__asHuman_friends)
-              ]))! as BuiltList<Object?>);
           break;
       }
     }
@@ -2032,8 +2002,6 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
   final String name;
   @override
   final String? homePlanet;
-  @override
-  final BuiltList<GheroFieldsFragment__asHuman_friends?>? friends;
 
   factory _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman(
           [void Function(
@@ -2047,8 +2015,7 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
       {required this.G__typename,
       required this.id,
       required this.name,
-      this.homePlanet,
-      this.friends})
+      this.homePlanet})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(
         G__typename,
@@ -2085,8 +2052,7 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
-        homePlanet == other.homePlanet &&
-        friends == other.friends;
+        homePlanet == other.homePlanet;
   }
 
   @override
@@ -2096,7 +2062,6 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, homePlanet.hashCode);
-    _$hash = $jc(_$hash, friends.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2108,8 +2073,7 @@ class _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
-          ..add('homePlanet', homePlanet)
-          ..add('friends', friends))
+          ..add('homePlanet', homePlanet))
         .toString();
   }
 }
@@ -2137,13 +2101,6 @@ class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanBuil
   String? get homePlanet => _$this._homePlanet;
   set homePlanet(String? homePlanet) => _$this._homePlanet = homePlanet;
 
-  ListBuilder<GheroFieldsFragment__asHuman_friends?>? _friends;
-  ListBuilder<GheroFieldsFragment__asHuman_friends?> get friends =>
-      _$this._friends ??=
-          new ListBuilder<GheroFieldsFragment__asHuman_friends?>();
-  set friends(ListBuilder<GheroFieldsFragment__asHuman_friends?>? friends) =>
-      _$this._friends = friends;
-
   GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanBuilder() {
     GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
         ._initializeBuilder(this);
@@ -2157,7 +2114,6 @@ class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanBuil
       _id = $v.id;
       _name = $v.name;
       _homePlanet = $v.homePlanet;
-      _friends = $v.friends?.toBuilder();
       _$v = null;
     }
     return this;
@@ -2186,36 +2142,19 @@ class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHumanBuil
 
   _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
       _build() {
-    _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
-        _$result;
-    try {
-      _$result = _$v ??
-          new _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman._(
-              G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename,
-                  r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman',
-                  'G__typename'),
-              id: BuiltValueNullFieldError.checkNotNull(id,
-                  r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(
-                  name,
-                  r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman',
-                  'name'),
-              homePlanet: homePlanet,
-              friends: _friends?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'friends';
-        _friends?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename,
+                r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman',
+                'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(id,
+                r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(
+                name,
+                r'GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman',
+                'name'),
+            homePlanet: homePlanet);
     replace(_$result);
     return _$result;
   }
@@ -2930,8 +2869,6 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHuman
   final String name;
   @override
   final String? homePlanet;
-  @override
-  final BuiltList<GheroFieldsFragment__asHuman_friends?>? friends;
 
   factory _$GheroFieldsFragmentData__asHuman_friends__asHuman(
           [void Function(
@@ -2945,8 +2882,7 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHuman
       {required this.G__typename,
       required this.id,
       required this.name,
-      this.homePlanet,
-      this.friends})
+      this.homePlanet})
       : super._() {
     BuiltValueNullFieldError.checkNotNull(G__typename,
         r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'G__typename');
@@ -2975,8 +2911,7 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHuman
         G__typename == other.G__typename &&
         id == other.id &&
         name == other.name &&
-        homePlanet == other.homePlanet &&
-        friends == other.friends;
+        homePlanet == other.homePlanet;
   }
 
   @override
@@ -2986,7 +2921,6 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHuman
     _$hash = $jc(_$hash, id.hashCode);
     _$hash = $jc(_$hash, name.hashCode);
     _$hash = $jc(_$hash, homePlanet.hashCode);
-    _$hash = $jc(_$hash, friends.hashCode);
     _$hash = $jf(_$hash);
     return _$hash;
   }
@@ -2998,8 +2932,7 @@ class _$GheroFieldsFragmentData__asHuman_friends__asHuman
           ..add('G__typename', G__typename)
           ..add('id', id)
           ..add('name', name)
-          ..add('homePlanet', homePlanet)
-          ..add('friends', friends))
+          ..add('homePlanet', homePlanet))
         .toString();
   }
 }
@@ -3026,13 +2959,6 @@ class GheroFieldsFragmentData__asHuman_friends__asHumanBuilder
   String? get homePlanet => _$this._homePlanet;
   set homePlanet(String? homePlanet) => _$this._homePlanet = homePlanet;
 
-  ListBuilder<GheroFieldsFragment__asHuman_friends?>? _friends;
-  ListBuilder<GheroFieldsFragment__asHuman_friends?> get friends =>
-      _$this._friends ??=
-          new ListBuilder<GheroFieldsFragment__asHuman_friends?>();
-  set friends(ListBuilder<GheroFieldsFragment__asHuman_friends?>? friends) =>
-      _$this._friends = friends;
-
   GheroFieldsFragmentData__asHuman_friends__asHumanBuilder() {
     GheroFieldsFragmentData__asHuman_friends__asHuman._initializeBuilder(this);
   }
@@ -3044,7 +2970,6 @@ class GheroFieldsFragmentData__asHuman_friends__asHumanBuilder
       _id = $v.id;
       _name = $v.name;
       _homePlanet = $v.homePlanet;
-      _friends = $v.friends?.toBuilder();
       _$v = null;
     }
     return this;
@@ -3067,33 +2992,17 @@ class GheroFieldsFragmentData__asHuman_friends__asHumanBuilder
   GheroFieldsFragmentData__asHuman_friends__asHuman build() => _build();
 
   _$GheroFieldsFragmentData__asHuman_friends__asHuman _build() {
-    _$GheroFieldsFragmentData__asHuman_friends__asHuman _$result;
-    try {
-      _$result = _$v ??
-          new _$GheroFieldsFragmentData__asHuman_friends__asHuman._(
-              G__typename: BuiltValueNullFieldError.checkNotNull(
-                  G__typename,
-                  r'GheroFieldsFragmentData__asHuman_friends__asHuman',
-                  'G__typename'),
-              id: BuiltValueNullFieldError.checkNotNull(id,
-                  r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'id'),
-              name: BuiltValueNullFieldError.checkNotNull(name,
-                  r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'name'),
-              homePlanet: homePlanet,
-              friends: _friends?.build());
-    } catch (_) {
-      late String _$failedField;
-      try {
-        _$failedField = 'friends';
-        _friends?.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            r'GheroFieldsFragmentData__asHuman_friends__asHuman',
-            _$failedField,
-            e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$GheroFieldsFragmentData__asHuman_friends__asHuman._(
+            G__typename: BuiltValueNullFieldError.checkNotNull(
+                G__typename,
+                r'GheroFieldsFragmentData__asHuman_friends__asHuman',
+                'G__typename'),
+            id: BuiltValueNullFieldError.checkNotNull(
+                id, r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'id'),
+            name: BuiltValueNullFieldError.checkNotNull(name,
+                r'GheroFieldsFragmentData__asHuman_friends__asHuman', 'name'),
+            homePlanet: homePlanet);
     replace(_$result);
     return _$result;
   }
