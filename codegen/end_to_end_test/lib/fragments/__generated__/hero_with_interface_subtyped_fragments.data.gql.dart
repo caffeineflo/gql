@@ -149,7 +149,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__base
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroBaseSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__base.serializer,
         this,
@@ -198,7 +197,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroAsHumanSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman.serializer,
         this,
@@ -324,7 +322,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__ba
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroAsHumanFriendsBaseSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__base
             .serializer,
@@ -379,7 +376,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__as
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroAsHumanFriendsAsDroidSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asDroid
             .serializer,
@@ -433,7 +429,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__as
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroAsHumanFriendsAsHumanSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__asHuman_friends__asHuman
             .serializer,
@@ -480,7 +475,6 @@ abstract class GHeroWithInterfaceSubTypedFragmentsData_hero__asDroid
       get serializer =>
           _$gHeroWithInterfaceSubTypedFragmentsDataHeroAsDroidSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GHeroWithInterfaceSubTypedFragmentsData_hero__asDroid.serializer,
         this,
@@ -543,8 +537,6 @@ abstract class GheroFieldsFragment__base implements GheroFieldsFragment {
   String get id;
   @override
   String get name;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragment__asHuman
@@ -559,8 +551,6 @@ abstract class GheroFieldsFragment__asHuman
   String? get homePlanet;
   @override
   BuiltList<GheroFieldsFragment__asHuman_friends?>? get friends;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragment__asHuman_friends
@@ -610,8 +600,6 @@ abstract class GheroFieldsFragment__asHuman_friends__base
     implements GheroFieldsFragment__asHuman_friends {
   @override
   String get G__typename;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragment__asHuman_friends__asDroid
@@ -628,8 +616,6 @@ abstract class GheroFieldsFragment__asHuman_friends__asDroid
   String get name;
   @override
   String? get primaryFunction;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragment__asHuman_friends__asHuman
@@ -645,8 +631,6 @@ abstract class GheroFieldsFragment__asHuman_friends__asHuman
   String get name;
   @override
   String? get homePlanet;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragment__asDroid
@@ -659,8 +643,6 @@ abstract class GheroFieldsFragment__asDroid
   String get name;
   @override
   String? get primaryFunction;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GheroFieldsFragmentData implements GheroFieldsFragment {
@@ -753,7 +735,6 @@ abstract class GheroFieldsFragmentData__base
   static Serializer<GheroFieldsFragmentData__base> get serializer =>
       _$gheroFieldsFragmentDataBaseSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__base.serializer,
         this,
@@ -797,7 +778,6 @@ abstract class GheroFieldsFragmentData__asHuman
   static Serializer<GheroFieldsFragmentData__asHuman> get serializer =>
       _$gheroFieldsFragmentDataAsHumanSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__asHuman.serializer,
         this,
@@ -903,7 +883,6 @@ abstract class GheroFieldsFragmentData__asHuman_friends__base
   static Serializer<GheroFieldsFragmentData__asHuman_friends__base>
       get serializer => _$gheroFieldsFragmentDataAsHumanFriendsBaseSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__asHuman_friends__base.serializer,
         this,
@@ -951,7 +930,6 @@ abstract class GheroFieldsFragmentData__asHuman_friends__asDroid
       get serializer =>
           _$gheroFieldsFragmentDataAsHumanFriendsAsDroidSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__asHuman_friends__asDroid.serializer,
         this,
@@ -998,7 +976,6 @@ abstract class GheroFieldsFragmentData__asHuman_friends__asHuman
       get serializer =>
           _$gheroFieldsFragmentDataAsHumanFriendsAsHumanSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__asHuman_friends__asHuman.serializer,
         this,
@@ -1041,7 +1018,6 @@ abstract class GheroFieldsFragmentData__asDroid
   static Serializer<GheroFieldsFragmentData__asDroid> get serializer =>
       _$gheroFieldsFragmentDataAsDroidSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GheroFieldsFragmentData__asDroid.serializer,
         this,
@@ -1059,7 +1035,6 @@ abstract class GhumanFieldsFragment {
   String get G__typename;
   String? get homePlanet;
   BuiltList<GhumanFieldsFragment_friends?>? get friends;
-  Map<String, dynamic> toJson();
 }
 
 abstract class GhumanFieldsFragment_friends {
@@ -1107,8 +1082,6 @@ abstract class GhumanFieldsFragment_friends__base
     implements GhumanFieldsFragment_friends {
   @override
   String get G__typename;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GhumanFieldsFragment_friends__asDroid
@@ -1119,8 +1092,6 @@ abstract class GhumanFieldsFragment_friends__asDroid
   String get name;
   @override
   String? get primaryFunction;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GhumanFieldsFragment_friends__asHuman
@@ -1130,8 +1101,6 @@ abstract class GhumanFieldsFragment_friends__asHuman
   String get id;
   String get name;
   String? get homePlanet;
-  @override
-  Map<String, dynamic> toJson();
 }
 
 abstract class GhumanFieldsFragmentData
@@ -1157,7 +1126,6 @@ abstract class GhumanFieldsFragmentData
   static Serializer<GhumanFieldsFragmentData> get serializer =>
       _$ghumanFieldsFragmentDataSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GhumanFieldsFragmentData.serializer,
         this,
@@ -1256,7 +1224,6 @@ abstract class GhumanFieldsFragmentData_friends__base
   static Serializer<GhumanFieldsFragmentData_friends__base> get serializer =>
       _$ghumanFieldsFragmentDataFriendsBaseSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GhumanFieldsFragmentData_friends__base.serializer,
         this,
@@ -1300,7 +1267,6 @@ abstract class GhumanFieldsFragmentData_friends__asDroid
   static Serializer<GhumanFieldsFragmentData_friends__asDroid> get serializer =>
       _$ghumanFieldsFragmentDataFriendsAsDroidSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GhumanFieldsFragmentData_friends__asDroid.serializer,
         this,
@@ -1343,7 +1309,6 @@ abstract class GhumanFieldsFragmentData_friends__asHuman
   static Serializer<GhumanFieldsFragmentData_friends__asHuman> get serializer =>
       _$ghumanFieldsFragmentDataFriendsAsHumanSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GhumanFieldsFragmentData_friends__asHuman.serializer,
         this,
@@ -1360,7 +1325,6 @@ abstract class GhumanFieldsFragmentData_friends__asHuman
 abstract class GdroidFieldsFragment {
   String get G__typename;
   String? get primaryFunction;
-  Map<String, dynamic> toJson();
 }
 
 abstract class GdroidFieldsFragmentData
@@ -1384,7 +1348,6 @@ abstract class GdroidFieldsFragmentData
   static Serializer<GdroidFieldsFragmentData> get serializer =>
       _$gdroidFieldsFragmentDataSerializer;
 
-  @override
   Map<String, dynamic> toJson() => (_i1.serializers.serializeWith(
         GdroidFieldsFragmentData.serializer,
         this,
