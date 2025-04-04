@@ -16,4 +16,4 @@ dev_dependencies:
   test: ^1.16.8
   gql_tristate_value: ^1.0.0
   gql_build: ^0.8.0
-  gql_code_builder: ^0.7.1
+  gql_code_builder: ^0.13.2-alpha.0

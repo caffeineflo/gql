@@ -1,3 +1,7 @@
+## 0.13.2-alpha.0
+
+ - Alpha Version w/ Type Inheritance for Fragments/Spreads
+
 ## 0.13.1
 
 - support analyzer 7.0.0
